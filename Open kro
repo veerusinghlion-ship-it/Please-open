@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.card{
+  background:#fff;
+  padding:30px 25px;
+  border-radius:20px;
+  width:85%;
+  max-width:340px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+h2{margin-bottom:20px}
+button{
+  padding:12px 22px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  margin:10px;
+}
+#yes{background:#ff4d6d;color:#fff}
+#no{background:#e0e0e0;position:relative}
+.confetti{
+  position:fixed;
+  width:10px;
+  height:10px;
+  background:red;
+  animation:fall 3s linear infinite;
+}
+@keyframes fall{
+  from{transform:translateY(-10vh)}
+  to{transform:translateY(110vh)}
+}
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <h2>Priyanka, will you be my Valentine? 💖</h2>
+  <button id="yes">Yes</button>
+  <button id="no">No</button>
+</div>
+
+<script>
+const noBtn=document.getElementById("no");
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.left=Math.random()*200-100+"px";
+  noBtn.style.top=Math.random()*200-100+"px";
+});
+
+document.getElementById("yes").onclick=()=>{
+  document.getElementById("card").innerHTML="<h2>YAY! 🎉💖</h2>";
+  for(let i=0;i<60;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=`hsl(${Math.random()*360},100%,60%)`;
+    c.style.animationDuration=2+Math.random()*3+"s";
+    document.body.appendChild(c);
+  }
+};
+</script>
+
+</body>
+</html>
